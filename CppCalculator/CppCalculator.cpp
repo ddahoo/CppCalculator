@@ -31,7 +31,7 @@ vector<char> SplitChars(string& expression)
 				expression.insert(found, " ");
 			}			
 			expression.insert(found + 2, " ");
-			i = found + 3;
+			i = found + 2;
 		}
 		else
 		{

@@ -26,12 +26,18 @@ vector<char> SplitChars(string& expression)
 		size_t found = expression.find_first_of("()*/+-", i);
 		if (found < expression.length())
 		{
-			if (found != 0)
+			if (found == 0)
 			{
 				expression.insert(found, " ");
+				expression.insert(found + 1, " ");
+				i = found + 1;
+			}
+			else
+			{
+				expression.insert(found, " ");
+				expression.insert(found + 2, " ");
+				i = found + 2;
 			}			
-			expression.insert(found + 2, " ");
-			i = found + 2;
 		}
 		else
 		{

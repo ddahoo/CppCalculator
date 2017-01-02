@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstddef>
 #include "Tokenize.h"
 
 
@@ -19,6 +20,24 @@ string expression;
 vector<char> SplitChars(string& expression)
 {
 	vector<char> v;
+	int i = 0;
+	while (i < expression.length())
+	{
+		size_t found = expression.find_first_of("()*/+-", i);
+		if (found < expression.length())
+		{
+			if (found != 0)
+			{
+				expression.insert(found, " ");
+			}			
+			expression.insert(found + 2, " ");
+			i = found + 3;
+		}
+		else
+		{
+			break;
+		}
+	}
 	copy(expression.begin(), expression.end(), back_inserter(v));
 	return v;
 }

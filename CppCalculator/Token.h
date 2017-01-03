@@ -5,16 +5,17 @@ public:
 	int number;
 	char symbol;
 	int precedence;
-	enum Type {
+	enum TokenType {
 		Number,
 		Operator,
 		LeftParenthesis,
 		RightParenthesis
-	} type;
+	} ;
 	enum Associativity {
 		Left,
 		Right,
 		None
-	} assoc;
-
+	} ;
+	enum TokenType type;
+	enum Associativity assoc;
 };
